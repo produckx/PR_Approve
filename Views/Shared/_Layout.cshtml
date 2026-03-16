@@ -1,0 +1,21 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+<body>
+
+    @await Html.PartialAsync("_Library")
+
+    @await Html.PartialAsync("_Header")
+
+    @if (controller != "Login")
+    {
+        @await Html.PartialAsync("_Menu")
+    }
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @await Html.PartialAsync("_Footer")
+
+</body>
